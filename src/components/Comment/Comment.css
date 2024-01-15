@@ -1,0 +1,24 @@
+.commentSection {
+  position: relative;
+  left: 23%;
+  max-width: 32rem;
+  border: 0.063rem hsl(205, 33%, 90%) solid;
+  border-radius: 12px;
+  background-color: hsl(210, 60%, 98%);
+  box-sizing: content-box;
+  padding: 20px;
+  font-size: 16px;
+  text-align: left;
+  letter-spacing: 0.01rem;
+}
+
+.commentSection:hover {
+  background-color: hsl(219, 14%, 63%);
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 607px) {
+  .commentSection {
+    max-width: 20rem;
+  }
+}

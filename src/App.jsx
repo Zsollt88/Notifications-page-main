@@ -1,35 +1,94 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import { NOTIFICATIONDATA } from "./data.js";
+import Notification from "./components/Notification/Notification.jsx";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [classlessArray, setclasslessArray] = useState([]);
+  const [markAllStyle, setMarkAllStyle] = useState(false);
+
+  function styleToHighlight(selectedname) {
+    if (classlessArray.includes(selectedname) === false) {
+      setclasslessArray([...classlessArray, selectedname]);
+    } else {
+      /* else if (
+      higlightedName != name &&
+      classlesArray.includes(name) === true
+    ) {
+      sethiglightedName(name);
+    } else if (
+      higlightedName === name &&
+      classlesArray.includes(name) === false
+    ) {
+      sethiglightedName("");
+    } */
+      console.log("Unhandled exception");
+    }
+    console.log(classlessArray);
+  }
+
+  /*function classtoggle(name) {
+    if (higlightedName === name) {
+      sethiglightedName("");
+    } else {
+      sethiglightedName(name);
+    }
+    console.log(higlightedName);
+    const list = document.getElementById(name).classList;
+    list.toggle("chosen");
+  }*/
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div>
+      <main>
+        <span className="leftCorner">
+          <span className="title">Notifications</span>
+          <span className="counter">3</span>
+        </span>
+        <span
+          className={
+            markAllStyle === false
+              ? "clearnotifications"
+              : "clearnotifications_selected"
+          }
+          onClick={() => {
+            setclasslessArray([
+              ...classlessArray,
+              "Mark Webber",
+              "Angela Gray",
+              "Jacob Thompson",
+              "Nathan Peterson",
+              "Anna Kim",
+            ]);
+            setMarkAllStyle(true);
+          }}
+        >
+          Mark all as read
+        </span>
+
+        {/* <Notification
+          item={NOTIFICATIONDATA[0]}
+          activated={isHighlighted}
+          styleActivated={() => styleToHighlight(id)}
+        />
+        <Notification
+          item={NOTIFICATIONDATA[2]}
+          activated={isHighlighted}
+          styleActivated={() => styleToHighlight(id)}
+        />*/}
+        {NOTIFICATIONDATA.map((item) => (
+          <Notification
+            classlessFlag={classlessArray}
+            styleFunction={() => styleToHighlight(item.name)}
+            key={item.name}
+            {...item}
+          />
+        ))}
+      </main>
+    </div>
+  );
 }
 
-export default App
+export default App;

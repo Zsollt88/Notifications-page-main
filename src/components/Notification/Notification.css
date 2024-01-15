@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500&display=swap");
+
+#notificationTab {
+  position: relative;
+  max-width: 40rem;
+  display: flex;
+  border-radius: 12px;
+  margin: 2rem;
+  padding: 1rem;
+}
+.notificationTab {
+  background-color: hsl(211, 68%, 94%);
+}
+
+#notificationBody {
+  text-align: left;
+}
+
+#profile {
+  height: 3rem;
+  width: 3rem;
+  margin-right: 2.5vw;
+}
+
+.userName {
+  color: hsl(224, 21%, 14%);
+  font-family: "Plus Jakarta Sans ExtraBold";
+  font-size: 16px;
+}
+
+.userName:hover {
+  color: hsl(219, 85%, 26%);
+  cursor: pointer;
+}
+
+#notificationBody .redPoint {
+  display: inline-block;
+  width: 0.625rem;
+  height: 0.625rem;
+  margin-top: 0.313rem;
+  background-color: hsl(1, 90%, 64%);
+  border-radius: 50%;
+  box-shadow: hsl(1, 90%, 64%) 2px 2px 2px;
+  margin-left: 0.5rem;
+}
+
+#notificationTab .chosen {
+  color: hsl(224, 21%, 14%);
+  font-weight: 800;
+}
+
+#notificationTab .chosen:hover {
+  color: hsl(219, 85%, 26%);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+#notificationTab .timeClass {
+  color: hsl(219, 14%, 63%);
+}
+
+.commentimage {
+  width: 2.5rem;
+  height: 2.5rem;
+  position: absolute;
+  right: 0.625rem;
+}
+
+.commentimage:hover {
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 607px) {
+  #notificationTab {
+    min-width: 20rem;
+  }
+
+  .commentimage {
+    right: -2.5rem;
+  }
+}
